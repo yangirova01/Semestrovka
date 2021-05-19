@@ -8,23 +8,28 @@ import ru.itis.springbootdemo.models.User;
 import java.util.Collection;
 import java.util.Collections;
 
+
 public class UserDetailsImpl implements UserDetails {
 
     private User user;
+
+    public User getUser() {
+        return user;
+    }
 
     public UserDetailsImpl(User user) {
         this.user = user;
     }
 
-    // какие права есть у пользователя? = роль
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return Collections.singletonList(new SimpleGrantedAuthority("USER"));
+        SimpleGrantedAuthority authority = new SimpleGrantedAuthority(user.getRole().toString());
+        return Collections.singleton(authority);
     }
 
     @Override
     public String getPassword() {
-        return user.getPassword();
+        return user.getHashPassword();
     }
 
     @Override
@@ -39,7 +44,7 @@ public class UserDetailsImpl implements UserDetails {
 
     @Override
     public boolean isAccountNonLocked() {
-        return true;
+        return user.isActive();
     }
 
     @Override
@@ -49,6 +54,6 @@ public class UserDetailsImpl implements UserDetails {
 
     @Override
     public boolean isEnabled() {
-        return true;
+        return user.isActive();
     }
 }

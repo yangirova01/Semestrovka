@@ -85,7 +85,7 @@
     <div style="padding-top: 20px">
         <form action="/signIn" method="post">
             <h1 class="shrift" style="margin-left: 70px">ВОЙДИТЕ В СИСТЕМУ:</h1>
-            <p class="form" style="margin-left: 70px">ВВЕДИТЕ ЭЛ.ПОЧТУ:<input name="login" class="form"
+            <p class="form" style="margin-left: 70px">ВВЕДИТЕ ЭЛ.ПОЧТУ:<input name="email" class="form"
                                                                               placeholder="ВВЕДИТЕ ЭЛ.ПОЧТУ"></p>
             <p class="form" style="margin-left: 70px">ПАРОЛЬ:<input type="password" class="form" name="password"
                                                                     placeholder="ВВЕДИТЕ ПАРОЛЬ"></p>

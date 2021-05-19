@@ -30,7 +30,7 @@ public class SignUpServiceImpl implements SignUpService {
         User newUser = User.builder()
                 .email(form.getEmail())
                 .phoneNumber(form.getPhoneNumber())
-                .password(passwordEncoder.encode(form.getPassword()))
+                .hashPassword(passwordEncoder.encode(form.getPassword()))
                 .build();
 
         usersRepository.save(newUser);

@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 @NoArgsConstructor
-public class ProductDtoForRequst {
+public class ProductDtoForSearchRequest {
     private String size;
     private String price;
 }

@@ -38,7 +38,7 @@ public class UsersServiceImpl implements UsersService {
     public UserDto addUser(UserForm userForm) {
         User user = User.builder()
                 .email(userForm.getEmail())
-                .password(passwordEncoder.encode(userForm.getPassword()))
+                .hashPassword(passwordEncoder.encode(userForm.getPassword()))
                 .build();
         usersRepository.save(user);
         return UserDto.from(user);

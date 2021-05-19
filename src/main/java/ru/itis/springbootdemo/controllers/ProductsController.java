@@ -2,11 +2,9 @@ package ru.itis.springbootdemo.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import ru.itis.springbootdemo.dto.ProductDto;
-import ru.itis.springbootdemo.dto.ProductDtoForRequst;
+import ru.itis.springbootdemo.dto.ProductDtoForSearchRequest;
 import ru.itis.springbootdemo.services.ProductService;
 
 import java.util.List;
@@ -17,7 +15,7 @@ public class ProductsController {
     @Autowired
     private ProductService productService;
 
-    @CrossOrigin(origins = "http://localhost")
+    @CrossOrigin(origins = "*")
     @GetMapping("/products/{price}/{size}")
     @ResponseBody
     public ResponseEntity<List<ProductDto>> getProducts(@PathVariable("size") String size, @PathVariable("price") String price) {
@@ -27,9 +25,9 @@ public class ProductsController {
         return null;
     }
 
-    @CrossOrigin(origins = "http://localhost")
+    @CrossOrigin(origins = "*")
     @PostMapping("/products")
-    public ResponseEntity<List<ProductDto>> postProduct(@RequestBody ProductDtoForRequst productDto) {
+    public ResponseEntity<List<ProductDto>> postProduct(@RequestBody ProductDtoForSearchRequest productDto) {
         return getProducts(productDto.getSize(), productDto.getPrice());
     }
 

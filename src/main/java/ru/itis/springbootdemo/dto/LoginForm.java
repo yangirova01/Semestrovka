@@ -1,17 +1,16 @@
 package ru.itis.springbootdemo.dto;
 
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
 @Data
-public class UserForm {
-    private String phoneNumber;
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+public class LoginForm {
     private String email;
     private String password;
 }
-

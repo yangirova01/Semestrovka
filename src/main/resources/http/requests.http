@@ -4,3 +4,13 @@ GET localhost:8080/users/2
 GET http://localhost:8080/underwears/search?page=1&size=11&sort=title&direction=DESC
 
 ###
+
+POST localhost:8080/login
+Content-Type: application/json
+
+{
+  "email": "vafin20@gmail.com",
+  "password": "12345678"
+}
+
+###

@@ -5,13 +5,10 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@AllArgsConstructor
-@NoArgsConstructor
 @Builder
 @Data
-public class UserForm {
-    private String phoneNumber;
-    private String email;
-    private String password;
+@AllArgsConstructor
+@NoArgsConstructor
+public class ProductIdDto {
+    private Long id;
 }
-

@@ -1,15 +1,22 @@
 package ru.itis.springbootdemo.controllers;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.*;
+import ru.itis.springbootdemo.dto.LoginForm;
+import ru.itis.springbootdemo.dto.TokenDto;
+import ru.itis.springbootdemo.dto.UserForm;
+import ru.itis.springbootdemo.services.SignInService;
 
-@Controller
+@RestController
 public class SignInController {
 
-    @CrossOrigin("http://localhost")
-    @GetMapping("/signIn")
-    public String getSignInPage() {
-        return "sign_in_page";
+    @Autowired
+    private SignInService signInService;
+
+    @PostMapping("/login")
+    public ResponseEntity<TokenDto> login(@RequestBody LoginForm form) {
+        return ResponseEntity.ok(signInService.login(form));
     }
 }
